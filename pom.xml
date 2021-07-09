@@ -11,14 +11,14 @@
 		<tag>HEAD</tag>
 	</scm>
 
-<!--  repositories d'où maven lit ses dépendances -->
+	<!-- repositories d'où maven lit ses dépendances -->
 	<repositories>
 		<repository>
 			<id>nexus</id>
 			<url>https://nexus</url>
 		</repository>
 	</repositories>
-<!--  repository où maven écrit les artefacts -->
+	<!-- repository où maven écrit les artefacts -->
 	<distributionManagement>
 		<repository>
 			<id>nexus</id>
@@ -54,6 +54,21 @@
 							<doCheck>false</doCheck>
 							<doUpdate>false</doUpdate>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>templating-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<id>insert version and commit in Java file</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>filter-sources</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
