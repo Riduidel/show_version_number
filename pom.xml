@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.zenika.maven.formation</groupId>
 	<artifactId>show_version_number</artifactId>
@@ -6,8 +8,26 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:Riduidel/show_version_number.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
+
+<!--  repositories d'où maven lit ses dépendances -->
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<url>https://nexus</url>
+		</repository>
+	</repositories>
+<!--  repository où maven écrit les artefacts -->
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>https://nexus</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</distributionManagement>
 	<build>
 		<resources>
 			<resource>
