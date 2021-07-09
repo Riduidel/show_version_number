@@ -6,6 +6,9 @@
 	<artifactId>show_version_number</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<scm>
+		<developerConnection>scm:git:file://.</developerConnection>
+	</scm>
 	<build>
 		<resources>
 			<resource>
@@ -17,6 +20,25 @@
 			</resource>
 		</resources>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>get git commit id</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+						<configuration>
+							<doCheck>false</doCheck>
+							<doUpdate>false</doUpdate>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>

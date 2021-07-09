@@ -18,7 +18,8 @@ public class App {
 
 	private void run() throws IOException {
 		logger.info(String.format("Version %s", getProperties().getProperty("version")));
-		logger.info(String.format("Project artifact id %s", getProperties().getProperty("artifactId")));
+		logger.info(String.format("Git commit hash %s", getProperties().getProperty("commit")));
+		logger.info(String.format("Git branch %s", getProperties().getProperty("branch")));
 	}
 
 	private Properties getProperties() throws IOException {
