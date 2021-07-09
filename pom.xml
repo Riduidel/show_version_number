@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<scm>
-		<developerConnection>scm:git:file://.</developerConnection>
+		<developerConnection>scm:git:git@github.com:Riduidel/show_version_number.git</developerConnection>
 	</scm>
 	<build>
 		<resources>
