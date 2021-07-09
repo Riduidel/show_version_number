@@ -6,6 +6,9 @@
 	<artifactId>show_version_number</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 
+	<properties>
+		<app>fr.zenika.maven.formation.show_version_number.App</app>
+	</properties>
 	<scm>
 		<developerConnection>scm:git:git@github.com:Riduidel/show_version_number.git</developerConnection>
 		<tag>HEAD</tag>
@@ -82,6 +85,18 @@
 			</plugin>
 
 			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>${app}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.0.0</version>
@@ -93,7 +108,7 @@
 							<goal>java</goal>
 						</goals>
 						<configuration>
-							<mainClass>fr.zenika.maven.formation.show_version_number.App</mainClass>
+							<mainClass>${app}</mainClass>
 						</configuration>
 					</execution>
 				</executions>
@@ -111,7 +126,7 @@
 
 	<profiles>
 		<profile>
-		<!-- This profile is present only to disable proguard -->
+			<!-- This profile is present only to disable proguard -->
 			<id>debug</id>
 			<activation>
 				<property>
@@ -154,7 +169,7 @@
 						<configuration>
 							<proguardVersion>6.2.2</proguardVersion>
 							<options>
-								<option><![CDATA[-keep public class fr.zenika.maven.formation.show_version_number.App {public static void main(java.lang.String[]);}]]></option>
+								<option><![CDATA[-keep public class ${app} {public static void main(java.lang.String[]);}]]></option>
 							</options>
 							<libs>
 								<lib>${java.home}/lib/rt.jar</lib>
